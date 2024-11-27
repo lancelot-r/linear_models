@@ -128,5 +128,27 @@ N’hésitez pas à rejoindre le RIS, vous serez tenus informés des actions de 
 sessionInfo()
 ```
 
+```{r}
+library("modelsummary")
+data <- data.frame(anscombe)
+print(anscombe)
 
+a <- lm(y1~x1, data)
+b <- lm(y2~x2, data)
+c <- lm(y3~x3, data)
+d <- lm(y4~x4, data)
+
+liste <- list(a, b, c, d)
+modelsummary(liste)
+```
+```{r}
+data <- CO2
+print(data)
+
+a <- lm(uptake~conc, data)
+b <- lm(uptake~log10(conc), data)
+
+liste <- list(a, b)
+modelsummary(liste, estimate  = "{estimate}{stars}")
+```
 
